@@ -1,5 +1,6 @@
 require('colors');
 
+const { guardarDB } = require('./helpers/guardarArchivo');
 const { 
   inquirerMenu, 
   pausa, 
@@ -26,7 +27,9 @@ const main = async() => {
       case '2':
         console.log(tasks._listado);
         break;
-    }
+    } 
+
+    // guardarDB(tasks.listadoArr);
 
     await pausa();
 

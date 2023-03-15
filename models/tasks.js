@@ -10,6 +10,18 @@ class Tasks {
 
   _listado = {};
 
+  get listadoArr () {
+    
+    const listado = [];
+    Object.keys(this._listado).forEach(key => {
+      const task = this._listado[key];
+      listado.push(task);
+    })
+
+    return listado;
+
+  }
+
   constructor() {
     this._listado = {};
   }
