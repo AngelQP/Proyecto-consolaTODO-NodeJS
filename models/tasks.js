@@ -74,8 +74,29 @@ class Tasks {
     listado.forEach((list, indice) => {
       const idx = `${indice + 1 + '.'}`.green;
       const {desc, completadoEn} = list;
-      const estado = (completadoEn) ? 'Completada'.green : 'Pendiente'.red
+      const estado = (completadoEn) ? `${completadoEn}`.green : 'Pendiente'.red
       console.log(`${idx} ${desc} :: ${estado}`);
+    })
+
+  }
+
+  toggleCompletes(ids = []) {
+
+    ids.forEach( id => {
+
+      const task = this._listado[id];
+      if( !task.completadoEn ) {
+        task.completadoEn = new Date().toISOString();
+      }
+
+    });
+
+    this.listadoArr.forEach( task => {
+
+      if( !ids.includes(task.id) ){
+        this._listado[task.id].completadoEn = null;
+      }
+
     })
 
   }
